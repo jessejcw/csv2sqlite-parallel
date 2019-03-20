@@ -76,3 +76,6 @@ steps to take:
     JobPkg killer_job({nullptr, {}, -777, (void*)this});
     enqueue_job(killer_job);
 ```
+# TODO
+create sqlite table
+queue each row, write on sqlite
