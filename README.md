@@ -1,6 +1,6 @@
 # csv2sqlite parallel
 
-#### A simple parallel row processing with C++11 thread.
+#### A simple parallel row processing with C++11 thread.unfinished
 C++ concurent in one lesson
 
 ##Worker threads life cycle:
