@@ -78,4 +78,7 @@ steps to take:
 ```
 # TODO
 create sqlite table
+
 queue each row, write on sqlite
+
+data buffer compaction
