@@ -230,7 +230,7 @@ public:
 #define ERROR_SOME -1
 
 static int cnt = 0;
-static int create_cll(vector<string>& header, vector<string>& row) {
+static int create_record(vector<string>& header, vector<string>& row) {
 
     vector<char*> cargs((header.size()*2)+2);
     string cmd = "./csv_worker";
@@ -243,7 +243,6 @@ static int create_cll(vector<string>& header, vector<string>& row) {
     }
     cargs.push_back((char*)'\0');
 
-#if 1
     pid_t intermediate_pid = fork();
     if (intermediate_pid == 0) {
         pid_t worker_pid = fork();
@@ -271,36 +270,6 @@ static int create_cll(vector<string>& header, vector<string>& row) {
         _exit(0); // Or some more informative status
     }
     waitpid(intermediate_pid, 0, 0);
-#endif
-#if 0
-    int status;
-    pid_t c_pid = fork(), pid;
-    if (c_pid < 0) {
-
-        cout<<"Error: fork"<<endl;
-    }
-    else if (c_pid == 0) {
-
-	    cout<<++fork_cnt<<endl;
-        execvp(cmd.c_str(), &cargs[0]);
-        perror("execve failed");
-        //exit(12);
-    }
-
-    else if (c_pid > 0) {
-        if( (pid = wait(&status)) < 0){
-            perror("wait");
-            _exit(1);
-        }
-
-        printf("Parent: finished\n");
-    }
-    else{
-        perror("fork failed");
-        _exit(1);
-    }
-
-#endif
 
     return ERROR_NONE;
 }
@@ -320,7 +289,7 @@ int process_job(vector<string> row, int ctl, void* data) {
         cout<<"[drop]:"<<cnt<<" row_len:"<<len_row<<" header_len:"<<len_header<<endl;
         return 1;
     }
-    create_cll(headers, row);
+    create_record(headers, row);
     return 0;
 }
 
