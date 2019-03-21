@@ -12,6 +12,7 @@ C++ concurent in one lesson
 5. shutdown
 
 #### 1. spawn
+threads creation
 ```cpp
    // num of threads that cpu support minus main thread
    thread_count_ = std::thread::hardware_concurrency()-1;
