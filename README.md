@@ -4,7 +4,7 @@
 
    producer pushes job into job queue, once the queue is not empty, consumer woke and processing it. 
 
-##Worker threads life cycle:
+## Worker threads life cycle:
 
 1. spawn.
 2. sleep.
