@@ -1,7 +1,8 @@
 # csv2sqlite parallel
 
 #### A simple parallel row processing with C++11 thread.unfinished
-C++ concurent in one lesson
+
+   producer pushes job into job queue, once the queue is not empty, consumer woke and processing it. 
 
 ##Worker threads life cycle:
 
